@@ -20,8 +20,36 @@ class MainActivityFragment : Fragment() {
                               savedInstanceState: Bundle?): View? {
         var view = inflater.inflate(R.layout.fragment_main, container, false)
         var editPrice = view.findViewById(R.id.edit_price) as EditText
-        var buttonStart = view.findViewById(R.id.btn_start) as Button
-        buttonStart.setOnClickListener { view ->
+        var buttonDietEat = view.findViewById(R.id.btn_diet_eat) as Button
+        buttonDietEat.setOnClickListener { view ->
+            val newFragment = ChooseFragment()
+            val bundle = Bundle()
+            bundle.putDouble("price", editPrice.text.toString().toDouble())
+            newFragment.arguments = bundle
+
+            var manager = this.activity.supportFragmentManager
+            var transaction = manager.beginTransaction()
+            transaction.replace(R.id.fragment_context, newFragment)
+            transaction.addToBackStack(null);
+            transaction.commit()
+        }
+
+        var buttonOkEat = view.findViewById(R.id.btn_ok_eat) as Button
+        buttonOkEat.setOnClickListener { view ->
+            val newFragment = ChooseFragment()
+            val bundle = Bundle()
+            bundle.putDouble("price", editPrice.text.toString().toDouble())
+            newFragment.arguments = bundle
+
+            var manager = this.activity.supportFragmentManager
+            var transaction = manager.beginTransaction()
+            transaction.replace(R.id.fragment_context, newFragment)
+            transaction.addToBackStack(null);
+            transaction.commit()
+        }
+
+        var buttonLargeEat = view.findViewById(R.id.btn_diet_eat) as Button
+        buttonLargeEat.setOnClickListener { view ->
             val newFragment = ChooseFragment()
             val bundle = Bundle()
             bundle.putDouble("price", editPrice.text.toString().toDouble())

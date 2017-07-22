@@ -1,5 +1,7 @@
 <resources>
     <dimen name="fab_margin">16dp</dimen>
-    <dimen name="text_large">40dp</dimen>
-    <dimen name="text_price_high">200dp</dimen>
+    <dimen name="text_large">20dp</dimen>
+    <dimen name="text_high_distance">40dp</dimen>
+    <dimen name="btn_distance">20dp</dimen>
+    <dimen name="text_price_high">150dp</dimen>
 </resources>

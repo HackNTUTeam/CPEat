@@ -1,4 +1,25 @@
 <resources>
-    <string name="app_name">CPEat</string>
-    <string name="action_settings">Settings</string>
+    <string name="app_name">摳門吃到飽</string>
+    <string name="action_settings">設定</string>
+    <string name="text_wanted_price">您的用餐價格?</string>
+    <string name="sign_dollar">$</string>
+    <string name="text_wanted_choice">您想怎麼吃？</string>
+    <string name="text_diet_eat">輕鬆吃</string>
+    <string name="text_ok_eat">回本吃</string>
+    <string name="text_large_eat">吃到賺</string>
+    <string name="text_choice_your_love">選你所愛</string>
+    <string name="text_meat">肉類</string>
+    <string name="text_seafood">海鮮</string>
+    <string name="text_vegatable">蔬菜</string>
+    <string name="text_calculate">計算</string>
+    <string name="text_calculate_result">計算結果</string>
+    <string name="text_recalculate">重新計算</string>
+    <string name="text_detail">看細節...</string>
+    <string name="text_about">約</string>
+    <string name="text_g">公克</string>
+    <string name="text_eat_price">用餐價格：</string>
+    <string name="text_your_eat">你吃了：</string>
+    <string name="text_g_en">g</string>
+    <string name="text_rate">回本率：</string>
+    <string name="text_dollar">元</string>
 </resources>

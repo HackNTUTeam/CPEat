@@ -8,7 +8,8 @@
     tools:showIn="@layout/activity_main">
     <RelativeLayout
         android:layout_height="match_parent"
-        android:layout_width="match_parent" >
+        android:layout_width="match_parent"
+        android:orientation="vertical">
 
         <TextView
             android:layout_width="wrap_content"
@@ -17,29 +18,73 @@
             android:layout_marginTop="@dimen/text_price_high"
             android:layout_centerHorizontal="true"
             android:id="@+id/txt_price"
-            android:textColor="@color/colorGreen"
-            android:text="吃到飽價格" />
+            android:textColor="@color/colorGray"
+            android:text="@string/text_wanted_price" />
 
         <EditText
+            android:id="@+id/edit_price"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
             android:inputType="number"
             android:text="0"
             android:textSize="@dimen/text_large"
-            android:layout_below="@id/txt_price"
-            android:id="@+id/edit_price"/>
 
-        <Button
+            android:layout_below="@id/txt_price"
+            />
+
+        <TextView
+            android:id="@+id/txt_eat"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
             android:textSize="@dimen/text_large"
+            android:layout_marginTop="@dimen/text_high_distance"
+            android:layout_centerHorizontal="true"
+            android:textColor="@color/colorGray"
             android:layout_below="@id/edit_price"
-            android:background="@color/colorDarkGreen"
-            android:textColor="@color/colorWhite"
-            android:id="@+id/btn_start"
-            android:text="開始" />
+            android:text="@string/text_wanted_choice" />
+
+        <RelativeLayout
+            android:orientation="horizontal"
+            android:layout_height="match_parent"
+            android:layout_width="match_parent"
+            android:layout_below="@id/txt_eat"
+            android:layout_marginTop="@dimen/text_high_distance"
+            >
+
+            <Button
+                android:id="@+id/btn_diet_eat"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/btn_distance"
+                android:textSize="@dimen/text_large"
+                android:background="@color/colorDarkGreen"
+                android:textColor="@color/colorWhite"
+                android:text="@string/text_diet_eat" />
+
+            <Button
+                android:id="@+id/btn_ok_eat"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/text_large"
+                android:layout_marginLeft="@dimen/btn_distance"
+                android:layout_toRightOf="@+id/btn_diet_eat"
+                android:background="@color/colorDarkGreen"
+                android:textColor="@color/colorWhite"
+                android:text="@string/text_ok_eat" />
+
+            <Button
+                android:id="@+id/btn_large_eat"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/text_large"
+                android:layout_marginLeft="@dimen/btn_distance"
+                android:layout_toRightOf="@+id/btn_ok_eat"
+                android:background="@color/colorDarkGreen"
+                android:textColor="@color/colorWhite"
+                android:text="@string/text_large_eat" />
+        </RelativeLayout>
+
     </RelativeLayout>
 
 </android.support.constraint.ConstraintLayout>
