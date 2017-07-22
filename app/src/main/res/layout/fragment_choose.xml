@@ -18,15 +18,33 @@
             app:menu="@menu/navigation" />
 
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/txt_price"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:id="@+id/txt_choose"
+            android:layout_below="@+id/navigation"
             android:text="Choose" />
 
-        <ListView
-            android:layout_width="match_parent"
+        <LinearLayout
             android:layout_height="match_parent"
-            android:id="@+id/list_view" />
+            android:layout_width="match_parent"
+            android:orientation="vertical"
+            android:layout_below="@+id/txt_choose" >
+            <ListView
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="5"
+                android:layout_above="@+id/btn_calcute"
+                android:id="@+id/list_view" />
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_weight="1"
+                android:layout_height="0dp"
+                android:layout_centerHorizontal="true"
+                android:textSize="@dimen/text_large"
+                android:id="@+id/btn_calculate"
+                android:text="Cal" />
+        </LinearLayout>
     </RelativeLayout>
 
 </android.support.constraint.ConstraintLayout>
