@@ -26,6 +26,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
+            android:gravity="center"
             android:layout_marginLeft="@dimen/btn_end"
             android:layout_marginRight="@dimen/btn_end"
             android:inputType="number"
@@ -46,21 +47,23 @@
             android:layout_below="@id/edit_price"
             android:text="@string/text_wanted_choice" />
 
-        <RelativeLayout
+        <LinearLayout
             android:orientation="horizontal"
             android:layout_height="match_parent"
             android:layout_width="match_parent"
             android:layout_below="@id/txt_eat"
             android:layout_marginTop="@dimen/text_high_distance"
+            android:layout_marginLeft="@dimen/btn_distance"
+            android:layout_marginRight="@dimen/btn_distance"
             >
 
             <Button
                 android:id="@+id/btn_diet_eat"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/btn_distance"
                 android:textSize="@dimen/text_large"
                 android:background="@color/colorDarkGreen"
+                android:layout_weight="1"
                 android:textColor="@color/colorWhite"
                 android:text="@string/text_diet_eat" />
 
@@ -70,7 +73,7 @@
                 android:layout_height="wrap_content"
                 android:textSize="@dimen/text_large"
                 android:layout_marginLeft="@dimen/btn_distance"
-                android:layout_toRightOf="@+id/btn_diet_eat"
+                android:layout_weight="1"
                 android:background="@color/colorDarkGreen"
                 android:textColor="@color/colorWhite"
                 android:text="@string/text_ok_eat" />
@@ -81,11 +84,11 @@
                 android:layout_height="wrap_content"
                 android:textSize="@dimen/text_large"
                 android:layout_marginLeft="@dimen/btn_distance"
-                android:layout_toRightOf="@+id/btn_ok_eat"
+                android:layout_weight="1"
                 android:background="@color/colorDarkGreen"
                 android:textColor="@color/colorWhite"
                 android:text="@string/text_large_eat" />
-        </RelativeLayout>
+        </LinearLayout>
 
     </RelativeLayout>
 
