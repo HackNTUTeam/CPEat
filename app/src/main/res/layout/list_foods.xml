@@ -3,16 +3,16 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="?attr/actionBarSize"
+        android:id="@+id/chk_food" />
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="?attr/actionBarSize"
         android:id="@+id/txt_food_name"
-        android:text="Beef"/>
-
-    <CheckBox
-        android:layout_width="wrap_content"
-        android:layout_height="?attr/actionBarSize"
-        android:layout_alignParentRight="true"
-        android:id="@+id/chk_food" />
+        android:layout_toRightOf="@+id/chk_food"
+        android:text="Beef" />
 
 </RelativeLayout>

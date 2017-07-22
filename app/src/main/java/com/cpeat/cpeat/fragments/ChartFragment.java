@@ -40,7 +40,8 @@ public class ChartFragment extends Fragment implements OnChartValueSelectedListe
 
     @Nullable
     @Override
-    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container,
+                             @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_chart, container, false);
 
         mChart = (PieChart) view.findViewById(R.id.chart_result);
@@ -108,7 +109,7 @@ public class ChartFragment extends Fragment implements OnChartValueSelectedListe
         return s;
     }
 
-    protected String[] mParties = new String[] {
+    protected String[] mParties = new String[]{
             "Party A", "Party B", "Party C", "Party D", "Party E", "Party F", "Party G", "Party H",
             "Party I", "Party J", "Party K", "Party L", "Party M", "Party N", "Party O", "Party P",
             "Party Q", "Party R", "Party S", "Party T", "Party U", "Party V", "Party W", "Party X",
@@ -123,7 +124,7 @@ public class ChartFragment extends Fragment implements OnChartValueSelectedListe
 
         // NOTE: The order of the entries when being added to the entries array determines their position around the center of
         // the chart.
-        for (int i = 0; i < count ; i++) {
+        for (int i = 0; i < count; i++) {
             entries.add(new PieEntry((float) ((Math.random() * mult) + mult / 5),
                     mParties[i % mParties.length],
                     getResources().getDrawable(R.mipmap.ic_launcher)));

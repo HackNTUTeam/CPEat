@@ -1,0 +1,121 @@
+{
+    "seafood": [{
+            "name": "鯛魚",
+            "price": 134
+        },
+        {
+            "name": "旗魚",
+            "price": 177
+        },
+        {
+            "name": "鮭魚片",
+            "price": 112
+        },
+        {
+            "name": "草蝦",
+            "price": 335
+        },
+        {
+            "name": "溪蝦",
+            "price": 170
+        },
+        {
+            "name": "蝦仁",
+            "price": 100
+        },
+        {
+            "name": "蛤蜊",
+            "price": 80
+        },
+        {
+            "name": "蟹類",
+            "price": 92
+        },
+        {
+            "name": "花枝",
+            "price": 118
+        }
+    ],
+    "vegi": [{
+            "name": "小番茄",
+            "price": 102
+        },
+        {
+            "name": "櫻桃",
+            "price": 166
+        },
+        {
+            "name": "花椰菜",
+            "price": 71
+        },
+        {
+            "name": "豌豆",
+            "price": 61
+        },
+        {
+            "name": "菜豆",
+            "price": 38
+        },
+        {
+            "name": "南瓜",
+            "price": 40
+        },
+        {
+            "name": "玉米",
+            "price": 71
+        },
+        {
+            "name": "金針菇",
+            "price": 33
+        },
+        {
+            "name": "小白菜",
+            "price": 11
+        },
+        {
+            "name": "芹菜",
+            "price": 146
+        },
+        {
+            "name": "鮑魚菇",
+            "price": 54
+        },
+        {
+            "name": "菠菜",
+            "price": 34
+        },
+        {
+            "name": "萵苣菜",
+            "price": 18
+        },
+        {
+            "name": "箭竹筍",
+            "price": 80
+        }
+    ],
+    "meat": [{
+            "name": "豬肉",
+            "price": 83
+        },
+        {
+            "name": "鵝肉",
+            "price": 74
+        },
+        {
+            "name": "鴨肉",
+            "price": 40
+        },
+        {
+            "name": "雞肉",
+            "price": 27
+        },
+        {
+            "name": "牛肉",
+            "price": 141
+        },
+        {
+            "name": "羊肉",
+            "price": 220
+        }
+    ]
+}

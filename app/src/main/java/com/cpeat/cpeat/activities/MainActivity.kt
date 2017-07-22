@@ -1,10 +1,11 @@
-package com.cpeat.cpeat
+package com.cpeat.cpeat.activities
 
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.Toolbar
 import android.view.Menu
 import android.view.MenuItem
+import com.cpeat.cpeat.R
 import com.cpeat.cpeat.fragments.MainActivityFragment
 
 class MainActivity : AppCompatActivity() {
@@ -47,4 +48,6 @@ class MainActivity : AppCompatActivity() {
 
         return super.onOptionsItemSelected(item)
     }
+
+
 }

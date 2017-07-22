@@ -14,8 +14,9 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ListView;
 
-import com.cpeat.cpeat.Food;
 import com.cpeat.cpeat.R;
+import com.cpeat.cpeat.Utility;
+import com.cpeat.cpeat.data.FoodEntry;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -35,10 +36,9 @@ public class ChooseFragment extends Fragment {
     ChooseAdapter mSeaAdapter;
     Button mBtnCal;
 
-
-    List<Food> mMeatFoods = new ArrayList<>();
-    List<Food> mVegiFoods = new ArrayList<>();
-    List<Food> mSeaFoods = new ArrayList<>();
+    List<FoodEntry> mMeatFoods = new ArrayList<>();
+    List<FoodEntry> mVegiFoods = new ArrayList<>();
+    List<FoodEntry> mSeaFoods = new ArrayList<>();
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -102,14 +102,11 @@ public class ChooseFragment extends Fragment {
     }
 
     public void fillData() {
-        Food meat = new Food();
-        meat.name = "meatFoods";
-        mMeatFoods.add(meat);
-        Food vegi = new Food();
-        vegi.name = "vegiFoods";
-        mVegiFoods.add(vegi);
-        Food sea = new Food();
-        sea.name = "seaFoods";
-        mSeaFoods.add(sea);
+        mMeatFoods.clear();
+        mVegiFoods.clear();
+        mSeaFoods.clear();
+        Utility.JSON2Data(getContext(), mMeatFoods, "meat");
+        Utility.JSON2Data(getContext(), mVegiFoods, "vegi");
+        Utility.JSON2Data(getContext(), mSeaFoods, "seafood");
     }
 }
