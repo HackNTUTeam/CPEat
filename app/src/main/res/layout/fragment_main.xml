@@ -13,23 +13,33 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textSize="@dimen/text_large"
+            android:layout_marginTop="@dimen/text_price_high"
+            android:layout_centerHorizontal="true"
             android:id="@+id/txt_price"
-            android:text="Price" />
+            android:textColor="@color/colorGreen"
+            android:text="吃到飽價格" />
 
         <EditText
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
             android:inputType="number"
             android:text="0"
+            android:textSize="@dimen/text_large"
             android:layout_below="@id/txt_price"
             android:id="@+id/edit_price"/>
 
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:textSize="@dimen/text_large"
             android:layout_below="@id/edit_price"
+            android:background="@color/colorDarkGreen"
+            android:textColor="@color/colorWhite"
             android:id="@+id/btn_start"
-            android:text="Start" />
+            android:text="開始" />
     </RelativeLayout>
 
 </android.support.constraint.ConstraintLayout>

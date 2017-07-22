@@ -1,3 +1,5 @@
 <resources>
     <dimen name="fab_margin">16dp</dimen>
+    <dimen name="text_large">40dp</dimen>
+    <dimen name="text_price_high">200dp</dimen>
 </resources>
