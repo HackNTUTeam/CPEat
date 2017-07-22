@@ -1,4 +1,4 @@
-package com.cpeat.cpeat.com.cpeat.cpeat.fragments
+package com.cpeat.cpeat.fragments
 
 import android.support.v4.app.Fragment
 import android.os.Bundle
@@ -58,7 +58,7 @@ class MainActivityFragment : Fragment() {
             var manager = this.activity.supportFragmentManager
             var transaction = manager.beginTransaction()
             transaction.replace(R.id.fragment_context, newFragment)
-            transaction.addToBackStack(null);
+            transaction.addToBackStack(null)
             transaction.commit()
         }
         return view

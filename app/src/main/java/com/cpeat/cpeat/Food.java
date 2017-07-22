@@ -1,4 +1,4 @@
-package com.cpeat.cpeat.com.cpeat.cpeat.fragments;
+package com.cpeat.cpeat;
 
 /**
  * Created by CodeDiablos on 2017/7/22.
