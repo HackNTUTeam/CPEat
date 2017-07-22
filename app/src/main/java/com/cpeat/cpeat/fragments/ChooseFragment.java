@@ -37,7 +37,7 @@ public class ChooseFragment extends Fragment {
     Button mBtnCal;
 
     List<FoodEntry> mMeatFoods = new ArrayList<>();
-    List<FoodEntry> mVegiFoods = new ArrayList<>();
+    List<FoodEntry> mVegeFoods = new ArrayList<>();
     List<FoodEntry> mSeaFoods = new ArrayList<>();
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
@@ -70,7 +70,7 @@ public class ChooseFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_choose, container, false);
 
         mMeatAdapter = new ChooseAdapter(getContext(), R.layout.list_foods, mMeatFoods);
-        mVegiAdapter = new ChooseAdapter(getContext(), R.layout.list_foods, mVegiFoods);
+        mVegiAdapter = new ChooseAdapter(getContext(), R.layout.list_foods, mVegeFoods);
         mSeaAdapter = new ChooseAdapter(getContext(), R.layout.list_foods, mSeaFoods);
 
         mListView = (ListView) view.findViewById(R.id.list_view);
@@ -103,10 +103,10 @@ public class ChooseFragment extends Fragment {
 
     public void fillData() {
         mMeatFoods.clear();
-        mVegiFoods.clear();
+        mVegeFoods.clear();
         mSeaFoods.clear();
-        Utility.JSON2Data(getContext(), mMeatFoods, "meat");
-        Utility.JSON2Data(getContext(), mVegiFoods, "vegi");
-        Utility.JSON2Data(getContext(), mSeaFoods, "seafood");
+        Utility.JSON2Data(getContext(), mMeatFoods, getResources().getString(R.string.text_meat));
+        Utility.JSON2Data(getContext(), mVegeFoods, getResources().getString(R.string.text_vegetable));
+        Utility.JSON2Data(getContext(), mSeaFoods, getResources().getString(R.string.text_seafood));
     }
 }

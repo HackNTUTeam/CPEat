@@ -17,18 +17,10 @@
             android:background="?android:attr/windowBackground"
             app:menu="@menu/navigation" />
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            android:id="@+id/txt_choose"
-            android:layout_below="@+id/navigation"
-            android:text="Choose" />
-
         <LinearLayout
             android:layout_height="match_parent"
             android:layout_width="match_parent"
-            android:orientation="vertical"
-            android:layout_below="@+id/txt_choose" >
+            android:orientation="vertical" >
             <ListView
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
@@ -37,13 +29,14 @@
                 android:id="@+id/list_view" />
 
             <Button
+                android:id="@+id/btn_calculate"
                 android:layout_width="match_parent"
                 android:layout_weight="1"
-                android:layout_height="0dp"
+                android:layout_height="@dimen/btn_distance"
                 android:layout_centerHorizontal="true"
                 android:textSize="@dimen/text_large"
-                android:id="@+id/btn_calculate"
-                android:text="Cal" />
+                android:background="@color/colorDarkGreen"
+                android:text="@string/text_calculate" />
         </LinearLayout>
     </RelativeLayout>
 
