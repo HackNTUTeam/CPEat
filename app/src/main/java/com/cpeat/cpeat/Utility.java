@@ -46,12 +46,12 @@ public class Utility {
 
             for (int i = 0; i < jsonArray.length(); i++) {
                 JSONObject jsonInside = jsonArray.getJSONObject(i);
-                Log.d("Details-->", jsonInside.getString("name"));
+                //Log.d("Details-->", jsonInside.getString("name"));
                 String name = jsonInside.getString("name");
                 String price = jsonInside.getString("price");
 
                 FoodEntry entry = new FoodEntry(name);
-                entry.food.price = Double.parseDouble(price);
+                entry.food.price = Float.parseFloat(price);
                 foods.add(entry);
             }
         } catch (JSONException e) {

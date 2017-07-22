@@ -1,6 +1,7 @@
 package com.cpeat.cpeat.data;
 
 import java.io.Serializable;
+import java.util.List;
 
 /**
  * Created by cynthia on 2017/7/22.

@@ -20,46 +20,45 @@ class MainActivityFragment : Fragment() {
                               savedInstanceState: Bundle?): View? {
         var view = inflater.inflate(R.layout.fragment_main, container, false)
         var editPrice = view.findViewById(R.id.edit_price) as EditText
-        var buttonDietEat = view.findViewById(R.id.btn_diet_eat) as Button
-        buttonDietEat.setOnClickListener { view ->
-            var price = 0.0
-            try {
-                price = editPrice.text.toString().toDouble();
-            } finally {
 
+        var buttonDietEat = view.findViewById(R.id.btn_diet_eat) as Button
+        buttonDietEat.setOnClickListener { _ ->
+            var price = 0.0f
+            try {
+                price = editPrice.text.toString().toFloat();
+            } catch (e: Exception) {
             }
-            changeFragment(price, 0.5)
+            changeFragment(price, 0.5f)
         }
 
         var buttonOkEat = view.findViewById(R.id.btn_ok_eat) as Button
-        buttonOkEat.setOnClickListener { view ->
-            var price = 0.0
+        buttonOkEat.setOnClickListener { _ ->
+            var price = 0.0f
             try {
-                price = editPrice.text.toString().toDouble();
-            } finally {
-
+                price = editPrice.text.toString().toFloat();
+            } catch (e: Exception) {
             }
-            changeFragment(price, 1.0)
+            changeFragment(price, 1.0f)
         }
 
         var buttonLargeEat = view.findViewById(R.id.btn_large_eat) as Button
-        buttonLargeEat.setOnClickListener { view ->
-            var price = 0.0
+        buttonLargeEat.setOnClickListener { _ ->
+            var price = 0.0f
             try {
-                price = editPrice.text.toString().toDouble();
-            } finally {
-
+                price = editPrice.text.toString().toFloat();
+            } catch (e: Exception) {
             }
-            changeFragment(price, 1.5)
+            changeFragment(price, 1.5f)
         }
+
         return view
     }
 
-    fun changeFragment(price: Double, level: Double) {
+    fun changeFragment(price: Float, level: Float) {
         val newFragment = ChooseFragment()
         val bundle = Bundle()
-        bundle.putDouble("price", price)
-        bundle.putDouble("price", level)
+        bundle.putFloat("price", price)
+        bundle.putFloat("level", level)
         newFragment.arguments = bundle
 
         var manager = this.activity.supportFragmentManager
@@ -68,5 +67,4 @@ class MainActivityFragment : Fragment() {
         transaction.addToBackStack(null)
         transaction.commit()
     }
-
 }

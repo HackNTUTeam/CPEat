@@ -19,6 +19,7 @@ import com.cpeat.cpeat.R;
 import com.cpeat.cpeat.Utility;
 import com.cpeat.cpeat.activities.MainActivity;
 import com.cpeat.cpeat.data.FoodEntry;
+import com.cpeat.cpeat.data.ResultData;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -33,14 +34,17 @@ public class ChooseFragment extends Fragment {
 
     BottomNavigationView mNavigation;
     ListView mListView;
+    Button mBtnCal;
+
     ChooseAdapter mMeatAdapter;
     ChooseAdapter mVegeAdapter;
     ChooseAdapter mSeaAdapter;
-    Button mBtnCal;
 
     List<FoodEntry> mMeatFoods = new ArrayList<>();
     List<FoodEntry> mVegeFoods = new ArrayList<>();
     List<FoodEntry> mSeaFoods = new ArrayList<>();
+
+    ResultData mResult;
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -72,6 +76,9 @@ public class ChooseFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_choose, container, false);
 
 //        (AppCompatActivity) getActivity()..setTitle(R.string.text_choice_your_love);
+        mResult = new ResultData();
+        mResult.orgPrice = getArguments().getFloat("price");
+        mResult.level = getArguments().getFloat("level");
 
         mMeatAdapter = new ChooseAdapter(getContext(), R.layout.list_foods, mMeatFoods);
         mVegeAdapter = new ChooseAdapter(getContext(), R.layout.list_foods, mVegeFoods);
@@ -89,7 +96,7 @@ public class ChooseFragment extends Fragment {
             public void onClick(View v) {
                 Fragment newFragment = new ChartFragment();
                 Bundle bundle = new Bundle();
-                //bundle.putDouble("price", editPrice.text.toString().toDouble())
+                bundle.putSerializable("result", new ResultData());
                 newFragment.setArguments(bundle);
 
                 FragmentManager manager = ChooseFragment.this.getActivity().getSupportFragmentManager();
@@ -109,8 +116,8 @@ public class ChooseFragment extends Fragment {
         mMeatFoods.clear();
         mVegeFoods.clear();
         mSeaFoods.clear();
-        Utility.JSON2Data(getContext(), mMeatFoods, getResources().getString(R.string.text_meat));
-        Utility.JSON2Data(getContext(), mVegeFoods, getResources().getString(R.string.text_vegetable));
-        Utility.JSON2Data(getContext(), mSeaFoods, getResources().getString(R.string.text_seafood));
+        Utility.JSON2Data(getContext(), mMeatFoods, "meat");
+        Utility.JSON2Data(getContext(), mVegeFoods, "vege");
+        Utility.JSON2Data(getContext(), mSeaFoods, "seafood");
     }
 }
