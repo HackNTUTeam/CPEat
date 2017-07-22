@@ -4,14 +4,18 @@
     android:layout_height="match_parent">
 
     <CheckBox
+        android:id="@+id/chk_food"
         android:layout_width="wrap_content"
         android:layout_height="?attr/actionBarSize"
-        android:id="@+id/chk_food" />
+        android:layout_marginLeft="@dimen/checkbox_left_margin"
+         />
 
     <TextView
+        android:id="@+id/txt_food_name"
         android:layout_width="wrap_content"
         android:layout_height="?attr/actionBarSize"
-        android:id="@+id/txt_food_name"
+        android:gravity="center_vertical"
+        android:textSize="@dimen/text_large"
         android:layout_toRightOf="@+id/chk_food"
         android:text="Beef" />
 

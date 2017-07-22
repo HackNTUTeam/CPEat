@@ -75,7 +75,7 @@ public class ChooseFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_choose, container, false);
 
-//        (AppCompatActivity) getActivity()..setTitle(R.string.text_choice_your_love);
+        ((AppCompatActivity)getActivity()).getSupportActionBar().setTitle(R.string.text_choice_your_love);
         mResult = new ResultData();
         mResult.orgPrice = getArguments().getFloat("price");
         mResult.level = getArguments().getFloat("level");

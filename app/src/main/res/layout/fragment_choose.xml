@@ -32,7 +32,7 @@
                 android:id="@+id/btn_calculate"
                 android:layout_width="match_parent"
                 android:layout_weight="1"
-                android:layout_height="@dimen/btn_distance"
+                android:layout_height="@dimen/btn_calculate_high"
                 android:layout_centerHorizontal="true"
                 android:textSize="@dimen/text_large"
                 android:background="@color/colorDarkGreen"

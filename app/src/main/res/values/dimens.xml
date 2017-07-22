@@ -1,8 +1,11 @@
 <resources>
     <dimen name="fab_margin">16dp</dimen>
     <dimen name="text_large">20dp</dimen>
+    <dimen name="text_median">14dp</dimen>
     <dimen name="text_high_distance">40dp</dimen>
     <dimen name="btn_distance">20dp</dimen>
+    <dimen name="checkbox_left_margin">10dp</dimen>
+    <dimen name="btn_calculate_high">15dp</dimen>
     <dimen name="text_price_high">150dp</dimen>
     <dimen name="btn_end">100dp</dimen>
 </resources>
