@@ -21,7 +21,7 @@ public class Utility {
     public static String loadJSONFromAsset(Context context) {
         String json;
         try {
-            InputStream is = context.getAssets().open("seafood.json");
+            InputStream is = context.getAssets().open("foods.json");
             int size = is.available();
             byte[] buffer = new byte[size];
             is.read(buffer);
@@ -36,7 +36,12 @@ public class Utility {
 
     public static void JSON2Data(Context context, List<FoodEntry> foods, String objName) {
         try {
-            JSONObject jsonObj = new JSONObject(loadJSONFromAsset(context));
+            String jsonString = loadJSONFromAsset(context);
+            if (jsonString == null) {
+                return;
+            }
+
+            JSONObject jsonObj = new JSONObject(jsonString);
             JSONArray jsonArray = jsonObj.getJSONArray(objName);
 
             for (int i = 0; i < jsonArray.length(); i++) {
