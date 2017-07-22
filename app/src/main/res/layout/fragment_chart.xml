@@ -1,29 +1,199 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent" >
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
     <com.github.mikephil.charting.charts.PieChart
         android:id="@+id/chart_result"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="0dp"
+        android:layout_weight="1" />
 
     <RelativeLayout
         android:id="@+id/others"
-        android:layout_marginBottom="0dp"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" >
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            android:layout_above="@+id/btn_recalculate"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1">
+
+                    <ImageView
+                        android:id="@+id/img_plate1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/icon_plate" />
+
+                    <TextView
+                        android:id="@+id/txt_plate1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_toRightOf="@+id/img_plate1"
+                        android:text="@string/text_plate"
+                        android:textColor="@color/colorGray"
+                        android:textSize="@dimen/text_large" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1">
+
+                    <TextView
+                        android:id="@+id/txt_meat1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/text_meat"
+                        android:textColor="@color/colorGray"
+                        android:textSize="@dimen/text_large" />
+
+                    <ImageView
+                        android:id="@+id/img_plate2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_toRightOf="@+id/txt_meat1"
+                        android:src="@drawable/icon_plate" />
+
+                    <TextView
+                        android:id="@+id/txt_meat2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_toRightOf="@+id/img_plate2"
+                        android:text="X 4"
+                        android:textColor="@color/colorGray"
+                        android:textSize="@dimen/text_large" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1">
+
+                    <TextView
+                        android:id="@+id/txt_vege1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/text_vegetable"
+                        android:textColor="@color/colorGray"
+                        android:textSize="@dimen/text_large" />
+
+                    <ImageView
+                        android:id="@+id/img_plate3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_toRightOf="@+id/txt_vege1"
+                        android:src="@drawable/icon_plate" />
+
+                    <TextView
+                        android:id="@+id/txt_vege2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_toRightOf="@+id/img_plate3"
+                        android:text="X 1"
+                        android:textColor="@color/colorGray"
+                        android:textSize="@dimen/text_large" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1">
+
+                    <TextView
+                        android:id="@+id/txt_seafood1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/text_seafood"
+                        android:textColor="@color/colorGray"
+                        android:textSize="@dimen/text_large" />
+
+                    <ImageView
+                        android:id="@+id/img_plate4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_toRightOf="@+id/txt_seafood1"
+                        android:src="@drawable/icon_plate" />
+
+                    <TextView
+                        android:id="@+id/txt_seafood2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_toRightOf="@+id/img_plate4"
+                        android:text="X 3"
+                        android:textColor="@color/colorGray"
+                        android:textSize="@dimen/text_large" />
+                </RelativeLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:textColor="@color/colorGray"
+                    android:textSize="@dimen/text_large" />
+
+
+                <TextView
+                    android:id="@+id/txt_eat_price"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:text="@string/text_eat_price"
+                    android:textColor="@color/colorGray"
+                    android:textSize="@dimen/text_large" />
+
+                <TextView
+                    android:id="@+id/txt_your_eat"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:text="@string/text_your_eat"
+                    android:textColor="@color/colorGray"
+                    android:textSize="@dimen/text_large" />
+
+                <TextView
+                    android:id="@+id/txt_rate"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:text="@string/text_rate"
+                    android:textColor="@color/colorGray"
+                    android:textSize="@dimen/text_large" />
+
+            </LinearLayout>
+        </LinearLayout>
 
         <Button
             android:id="@+id/btn_recalculate"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/btn_calculate_high"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
             android:layout_centerHorizontal="true"
-            android:textSize="@dimen/text_large"
+            android:layout_weight="1"
             android:background="@color/colorDarkGreen"
-            android:text="@string/text_recalculate" />
-
+            android:text="@string/text_recalculate"
+            android:textSize="@dimen/text_large" />
     </RelativeLayout>
 
-</RelativeLayout>
+</LinearLayout>

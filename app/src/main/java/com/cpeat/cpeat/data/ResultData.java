@@ -1,5 +1,7 @@
 package com.cpeat.cpeat.data;
 
+import android.util.Log;
+
 import java.io.Serializable;
 import java.util.List;
 
@@ -8,17 +10,19 @@ import java.util.List;
  */
 
 public class ResultData implements Serializable {
+    public class FoodDetail implements Serializable {
+        public float percent;
+        public float count;
+    }
     public float orgPrice;
     public float eatPrice;
     public float level;
-    public float meatPercent = 30.0f;
-    public float vegePercent = 30.0f;
-    public float seafoodPercent = 30.0f;
-    public int meatCount;
-    public int vegeCount;
-    public int seafoodCount;
 
-    public static float getTotalPrice(List<FoodEntry> foods, float price, float level) {
+    public FoodDetail meat = new FoodDetail();
+    public FoodDetail vege = new FoodDetail();
+    public FoodDetail seafood = new FoodDetail();
+
+    public static void getTotalPrice(List<FoodEntry> foods, float price, float level, FoodDetail detail) {
         float total = 0.0f;
         int count = 0;
         for (FoodEntry food : foods) {
@@ -28,7 +32,14 @@ public class ResultData implements Serializable {
             }
         }
 
-        float foodCoefficient = price / (count * 100);
-        return total;
+        if (count == 0) {
+            return;
+        }
+        float coefficient = price / (count * 100);
+        detail.percent  = total * coefficient;
+        detail.count = detail.percent / 10;
+
+        Log.e("TEST", detail.percent + "   " + detail.count);
+
     }
 }

@@ -5,14 +5,19 @@ import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.text.SpannableString;
 import android.text.style.ForegroundColorSpan;
 import android.text.style.RelativeSizeSpan;
 import android.text.style.StyleSpan;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.TextView;
 
 import com.cpeat.cpeat.R;
 import com.cpeat.cpeat.data.ResultData;
@@ -39,7 +44,15 @@ import java.util.List;
 public class ChartFragment extends Fragment implements OnChartValueSelectedListener {
 
     private PieChart mChart;
+    private Button mBtnReCal;
     private ResultData mResult;
+
+    private TextView mTxtMeat;
+    private TextView mTxtVege;
+    private TextView mTxtSeafood;
+    private TextView mTxtPrice;
+    private TextView mTxtYourEat;
+    private TextView mTxtRate;
 
     @Nullable
     @Override
@@ -101,6 +114,32 @@ public class ChartFragment extends Fragment implements OnChartValueSelectedListe
         //mChart.setEntryLabelTypeface(mTfRegular);
         mChart.setEntryLabelTextSize(12f);
 
+        mTxtMeat = (TextView) view.findViewById(R.id.txt_meat2);
+        mTxtMeat.setText(mResult.meat.count + "");
+        mTxtVege = (TextView) view.findViewById(R.id.txt_vege2);
+        mTxtVege.setText(mResult.vege.count + "");
+        mTxtSeafood = (TextView) view.findViewById(R.id.txt_seafood2);
+        mTxtSeafood.setText(mResult.seafood.count + "");
+
+        mTxtPrice = (TextView) view.findViewById(R.id.txt_eat_price);
+        mTxtPrice.setText(getString(R.string.text_eat_price) + mResult.orgPrice + getString(R.string.text_dollar));
+        mTxtYourEat = (TextView) view.findViewById(R.id.txt_your_eat);
+        mTxtYourEat.setText(getString(R.string.text_your_eat) + mResult.eatPrice + getString(R.string.text_dollar));
+        mTxtRate = (TextView) view.findViewById(R.id.txt_rate);
+        mTxtRate.setText(getString(R.string.text_rate) + (mResult.eatPrice / mResult.orgPrice) + "%");
+
+        mBtnReCal = (Button) view.findViewById(R.id.btn_recalculate);
+        mBtnReCal.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FragmentManager manager = ChartFragment.this.getActivity().getSupportFragmentManager();
+                FragmentTransaction transaction = manager.beginTransaction();
+                transaction.replace(R.id.fragment_context, new MainActivityFragment());
+                transaction.addToBackStack(null);
+                transaction.commit();
+            }
+        });
+
         return view;
     }
 
@@ -117,19 +156,24 @@ public class ChartFragment extends Fragment implements OnChartValueSelectedListe
 
     private void setData() {
         List<PieEntry> entries = new ArrayList<>();
-        entries.add(new PieEntry(mResult.meatPercent, getString(R.string.text_meat), getResources().getDrawable(R.drawable.icon_meet)));
-        entries.add(new PieEntry(mResult.vegePercent, getString(R.string.text_vegetable), getResources().getDrawable(R.drawable.icon_vege)));
-        entries.add(new PieEntry(mResult.seafoodPercent, getString(R.string.text_seafood), getResources().getDrawable(R.drawable.icon_seafood)));
+        if (mResult.meat.count > 0) {
+            entries.add(new PieEntry(mResult.meat.percent, getString(R.string.text_meat), getResources().getDrawable(R.drawable.icon_meet)));
+        }
+        if (mResult.vege.count > 0) {
+            entries.add(new PieEntry(mResult.vege.percent, getString(R.string.text_vegetable), getResources().getDrawable(R.drawable.icon_vege)));
+        }
+        if (mResult.seafood.count > 0) {
+            entries.add(new PieEntry(mResult.seafood.percent, getString(R.string.text_seafood), getResources().getDrawable(R.drawable.icon_seafood)));
+        }
 
         PieDataSet dataSet = new PieDataSet(entries, "");
 
         dataSet.setDrawIcons(false);
-
         dataSet.setSliceSpace(3f);
         dataSet.setIconsOffset(new MPPointF(0, 40));
         dataSet.setSelectionShift(5f);
 
-        ArrayList<Integer> colors = new ArrayList<Integer>();
+        ArrayList<Integer> colors = new ArrayList<>();
 
         for (int c : ColorTemplate.VORDIPLOM_COLORS)
             colors.add(c);

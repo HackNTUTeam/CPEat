@@ -30,7 +30,7 @@
             android:layout_marginLeft="@dimen/btn_end"
             android:layout_marginRight="@dimen/btn_end"
             android:inputType="number"
-            android:text="0"
+            android:text="100"
             android:textSize="@dimen/text_large"
 
             android:layout_below="@id/txt_price"

@@ -8,6 +8,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
@@ -32,17 +33,17 @@ public class ChooseFragment extends Fragment {
 
     private static final String TAG = "ChooseFragment";
 
-    BottomNavigationView mNavigation;
-    ListView mListView;
-    Button mBtnCal;
+    private BottomNavigationView mNavigation;
+    private ListView mListView;
+    private Button mBtnCal;
 
-    ChooseAdapter mMeatAdapter;
-    ChooseAdapter mVegeAdapter;
-    ChooseAdapter mSeaAdapter;
+    private ChooseAdapter mMeatAdapter;
+    private ChooseAdapter mVegeAdapter;
+    private ChooseAdapter mSeaAdapter;
 
-    List<FoodEntry> mMeatFoods = new ArrayList<>();
-    List<FoodEntry> mVegeFoods = new ArrayList<>();
-    List<FoodEntry> mSeaFoods = new ArrayList<>();
+    private List<FoodEntry> mMeatFoods = new ArrayList<>();
+    private List<FoodEntry> mVegeFoods = new ArrayList<>();
+    private List<FoodEntry> mSeaFoods = new ArrayList<>();
 
     ResultData mResult;
 
@@ -94,9 +95,14 @@ public class ChooseFragment extends Fragment {
         mBtnCal.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                ResultData.getTotalPrice(mMeatFoods, mResult.orgPrice, mResult.level, mResult.meat);
+                ResultData.getTotalPrice(mVegeFoods, mResult.orgPrice, mResult.level, mResult.vege);
+                ResultData.getTotalPrice(mSeaFoods, mResult.orgPrice, mResult.level, mResult.seafood);
+                mResult.eatPrice =  mResult.meat.percent + mResult.vege.percent + mResult.seafood.percent;
+
                 Fragment newFragment = new ChartFragment();
                 Bundle bundle = new Bundle();
-                bundle.putSerializable("result", new ResultData());
+                bundle.putSerializable("result", mResult);
                 newFragment.setArguments(bundle);
 
                 FragmentManager manager = ChooseFragment.this.getActivity().getSupportFragmentManager();
