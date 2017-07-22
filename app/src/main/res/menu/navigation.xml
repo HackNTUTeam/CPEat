@@ -2,18 +2,18 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:id="@+id/navigation_home"
-        android:icon="@mipmap/ic_launcher"
-        android:title="Meat" />
+        android:id="@+id/navigation_meat"
+        android:icon="@drawable/icon_meet"
+        android:title="@string/text_meat" />
 
     <item
-        android:id="@+id/navigation_dashboard"
-        android:icon="@mipmap/ic_launcher"
-        android:title="Vegi" />
+        android:id="@+id/navigation_vegetable"
+        android:icon="@drawable/icon_vege"
+        android:title="@string/text_vegetable" />
 
     <item
-        android:id="@+id/navigation_notifications"
-        android:icon="@mipmap/ic_launcher"
-        android:title="Set" />
+        android:id="@+id/navigation_seafood"
+        android:icon="@drawable/icon_seafood"
+        android:title="@string/text_seafood" />
 
 </menu>

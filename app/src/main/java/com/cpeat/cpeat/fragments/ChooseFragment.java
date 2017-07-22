@@ -7,6 +7,7 @@ import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
+import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
@@ -16,6 +17,7 @@ import android.widget.ListView;
 
 import com.cpeat.cpeat.R;
 import com.cpeat.cpeat.Utility;
+import com.cpeat.cpeat.activities.MainActivity;
 import com.cpeat.cpeat.data.FoodEntry;
 
 import java.util.ArrayList;
@@ -32,7 +34,7 @@ public class ChooseFragment extends Fragment {
     BottomNavigationView mNavigation;
     ListView mListView;
     ChooseAdapter mMeatAdapter;
-    ChooseAdapter mVegiAdapter;
+    ChooseAdapter mVegeAdapter;
     ChooseAdapter mSeaAdapter;
     Button mBtnCal;
 
@@ -47,15 +49,15 @@ public class ChooseFragment extends Fragment {
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
 
             switch (item.getItemId()) {
-                case R.id.navigation_home:
+                case R.id.navigation_meat:
                     mListView.setAdapter(mMeatAdapter);
                     mMeatAdapter.notifyDataSetChanged();
                     return true;
-                case R.id.navigation_dashboard:
-                    mListView.setAdapter(mVegiAdapter);
-                    mVegiAdapter.notifyDataSetChanged();
+                case R.id.navigation_vegetable:
+                    mListView.setAdapter(mVegeAdapter);
+                    mVegeAdapter.notifyDataSetChanged();
                     return true;
-                case R.id.navigation_notifications:
+                case R.id.navigation_seafood:
                     mListView.setAdapter(mSeaAdapter);
                     mSeaAdapter.notifyDataSetChanged();
                     return true;
@@ -69,8 +71,10 @@ public class ChooseFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_choose, container, false);
 
+//        (AppCompatActivity) getActivity()..setTitle(R.string.text_choice_your_love);
+
         mMeatAdapter = new ChooseAdapter(getContext(), R.layout.list_foods, mMeatFoods);
-        mVegiAdapter = new ChooseAdapter(getContext(), R.layout.list_foods, mVegeFoods);
+        mVegeAdapter = new ChooseAdapter(getContext(), R.layout.list_foods, mVegeFoods);
         mSeaAdapter = new ChooseAdapter(getContext(), R.layout.list_foods, mSeaFoods);
 
         mListView = (ListView) view.findViewById(R.id.list_view);

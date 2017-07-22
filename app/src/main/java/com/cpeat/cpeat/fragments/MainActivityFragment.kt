@@ -42,7 +42,7 @@ class MainActivityFragment : Fragment() {
             changeFragment(price, 1.0)
         }
 
-        var buttonLargeEat = view.findViewById(R.id.btn_diet_eat) as Button
+        var buttonLargeEat = view.findViewById(R.id.btn_large_eat) as Button
         buttonLargeEat.setOnClickListener { view ->
             var price = 0.0
             try {
