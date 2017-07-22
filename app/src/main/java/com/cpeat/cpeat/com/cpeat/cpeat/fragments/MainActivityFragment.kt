@@ -1,14 +1,13 @@
-package com.cpeat.cpeat
+package com.cpeat.cpeat.com.cpeat.cpeat.fragments
 
 import android.support.v4.app.Fragment
-import android.support.v4.app.FragmentManager
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
+import com.cpeat.cpeat.R
 
 /**
  * A placeholder fragment containing a simple view.
