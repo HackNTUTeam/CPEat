@@ -35,11 +35,9 @@ public class ResultData implements Serializable {
         if (count == 0) {
             return;
         }
+
         float coefficient = price / (count * 100);
-        detail.percent  = total * coefficient;
-        detail.count = detail.percent / 10;
-
-        Log.e("TEST", detail.percent + "   " + detail.count);
-
+        detail.percent  = total * coefficient / 3;
+        detail.count = detail.percent * level / (10 * 3);
     }
 }

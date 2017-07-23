@@ -115,23 +115,27 @@ public class ChartFragment extends Fragment implements OnChartValueSelectedListe
         //mChart.setEntryLabelTypeface(mTfRegular);
         mChart.setEntryLabelTextSize(12f);
 
-        // float 0.0
-        NumberFormat nf = NumberFormat.getInstance();
-        nf.setMaximumFractionDigits(1);
-
         mTxtMeat = (TextView) view.findViewById(R.id.txt_meat2);
-        mTxtMeat.setText(nf.format(mResult.meat.count) + "");
+        mTxtMeat.setText(String.format("X %.1f", mResult.meat.count));
         mTxtVege = (TextView) view.findViewById(R.id.txt_vege2);
-        mTxtVege.setText(nf.format(mResult.vege.count) + "");
+        mTxtVege.setText(String.format("X %.1f", mResult.vege.count));
         mTxtSeafood = (TextView) view.findViewById(R.id.txt_seafood2);
-        mTxtSeafood.setText(nf.format(mResult.seafood.count) + "");
+        mTxtSeafood.setText(String.format("X %.1f", mResult.seafood.count));
 
+        String strPrice = String.format("%s%.1f %s", getString(R.string.text_eat_price),
+                mResult.orgPrice, getString(R.string.text_dollar));
         mTxtPrice = (TextView) view.findViewById(R.id.txt_eat_price);
-        mTxtPrice.setText(getString(R.string.text_eat_price) + nf.format(mResult.orgPrice) + getString(R.string.text_dollar));
+        mTxtPrice.setText(strPrice);
+
+        String strYourEat = String.format("%s%.1f %s", getString(R.string.text_your_eat),
+                mResult.eatPrice, getString(R.string.text_dollar));
         mTxtYourEat = (TextView) view.findViewById(R.id.txt_your_eat);
-        mTxtYourEat.setText(getString(R.string.text_your_eat) + nf.format(mResult.eatPrice) + getString(R.string.text_dollar));
+        mTxtYourEat.setText(strYourEat);
+
+        String strDollar = String.format("%s%.1f %s", getString(R.string.text_rate),
+                (mResult.eatPrice / mResult.orgPrice) * 100, "%");
         mTxtRate = (TextView) view.findViewById(R.id.txt_rate);
-        mTxtRate.setText(getString(R.string.text_rate) + nf.format((mResult.eatPrice / mResult.orgPrice)) + "%");
+        mTxtRate.setText(strDollar);
 
         mBtnReCal = (Button) view.findViewById(R.id.btn_recalculate);
         mBtnReCal.setOnClickListener(new View.OnClickListener() {
@@ -179,22 +183,9 @@ public class ChartFragment extends Fragment implements OnChartValueSelectedListe
         dataSet.setSelectionShift(5f);
 
         ArrayList<Integer> colors = new ArrayList<>();
-
-        for (int c : ColorTemplate.VORDIPLOM_COLORS)
-            colors.add(c);
-
-        for (int c : ColorTemplate.JOYFUL_COLORS)
-            colors.add(c);
-
-        for (int c : ColorTemplate.COLORFUL_COLORS)
-            colors.add(c);
-
-        for (int c : ColorTemplate.LIBERTY_COLORS)
-            colors.add(c);
-
-        for (int c : ColorTemplate.PASTEL_COLORS)
-            colors.add(c);
-
+        colors.add(Color.parseColor("#F44336"));
+        colors.add(Color.parseColor("#4CAF50"));
+        colors.add(Color.parseColor("#2196F3"));
         colors.add(ColorTemplate.getHoloBlue());
 
         dataSet.setColors(colors);
