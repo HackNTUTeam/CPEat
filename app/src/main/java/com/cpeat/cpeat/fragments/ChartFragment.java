@@ -34,6 +34,7 @@ import com.github.mikephil.charting.listener.OnChartValueSelectedListener;
 import com.github.mikephil.charting.utils.ColorTemplate;
 import com.github.mikephil.charting.utils.MPPointF;
 
+import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -114,19 +115,23 @@ public class ChartFragment extends Fragment implements OnChartValueSelectedListe
         //mChart.setEntryLabelTypeface(mTfRegular);
         mChart.setEntryLabelTextSize(12f);
 
+        // float 0.0
+        NumberFormat nf = NumberFormat.getInstance();
+        nf.setMaximumFractionDigits(1);
+
         mTxtMeat = (TextView) view.findViewById(R.id.txt_meat2);
-        mTxtMeat.setText(mResult.meat.count + "");
+        mTxtMeat.setText(nf.format(mResult.meat.count) + "");
         mTxtVege = (TextView) view.findViewById(R.id.txt_vege2);
-        mTxtVege.setText(mResult.vege.count + "");
+        mTxtVege.setText(nf.format(mResult.vege.count) + "");
         mTxtSeafood = (TextView) view.findViewById(R.id.txt_seafood2);
-        mTxtSeafood.setText(mResult.seafood.count + "");
+        mTxtSeafood.setText(nf.format(mResult.seafood.count) + "");
 
         mTxtPrice = (TextView) view.findViewById(R.id.txt_eat_price);
-        mTxtPrice.setText(getString(R.string.text_eat_price) + mResult.orgPrice + getString(R.string.text_dollar));
+        mTxtPrice.setText(getString(R.string.text_eat_price) + nf.format(mResult.orgPrice) + getString(R.string.text_dollar));
         mTxtYourEat = (TextView) view.findViewById(R.id.txt_your_eat);
-        mTxtYourEat.setText(getString(R.string.text_your_eat) + mResult.eatPrice + getString(R.string.text_dollar));
+        mTxtYourEat.setText(getString(R.string.text_your_eat) + nf.format(mResult.eatPrice) + getString(R.string.text_dollar));
         mTxtRate = (TextView) view.findViewById(R.id.txt_rate);
-        mTxtRate.setText(getString(R.string.text_rate) + (mResult.eatPrice / mResult.orgPrice) + "%");
+        mTxtRate.setText(getString(R.string.text_rate) + nf.format((mResult.eatPrice / mResult.orgPrice)) + "%");
 
         mBtnReCal = (Button) view.findViewById(R.id.btn_recalculate);
         mBtnReCal.setOnClickListener(new View.OnClickListener() {
